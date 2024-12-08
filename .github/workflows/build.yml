@@ -7,16 +7,18 @@ jobs:
       fail-fast: false
       matrix:
         os: [windows-latest, macos-latest, ubuntu-latest]
-        build_type: [RelWithDebInfo, Debug]
-        ui: [gui, cli]
+        # build_type: [RelWithDebInfo, Debug]
+        build_type: [Release]
+        # ui: [gui, cli]
+        ui: [gui]
         scripting: [lua, noscripts]
-        exclude:
-          - build_type: Debug
-            ui: gui
-          - build_type: RelWithDebInfo
-            ui: cli
-          - build_type: RelWithDebInfo
-            scripting: noscripts
+        # exclude:
+        #   - build_type: Debug
+        #     ui: gui
+        #   - build_type: RelWithDebInfo
+        #     ui: cli
+        #   - build_type: RelWithDebInfo
+        #     scripting: noscripts
     steps:
     - uses: actions/checkout@v4
       with:
@@ -113,5 +115,11 @@ jobs:
       with:
         name: aseprite
         path: |
+          libcrypto-1_1-x64.dll
           D:/a/aseprite/aseprite/build/bin/data
           D:/a/aseprite/aseprite/build/bin/aseprite.exe
+    - uses: actions/upload-artifact@v3
+      with:
+        name: asepriteAll
+        path: |
+          D:/a/aseprite/aseprite/build/bin/
