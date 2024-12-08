@@ -117,11 +117,13 @@ jobs:
         name: aseprite
         path: |
           # libcrypto-1_1-x64.dll
-          D:/a/aseprite/aseprite/build/bin/data
+          # D:/a/aseprite/aseprite/build/bin/data
+          /Users/runner/work/aseprite/aseprite/build/data
           # D:/a/aseprite/aseprite/build/bin/aseprite.exe
-          D:/a/aseprite/aseprite/build/bin/aseprite.app
+          /Users/runner/work/aseprite/aseprite/build/aseprite.app
     - uses: actions/upload-artifact@v4
       with:
         name: asepriteAll
         path: |
-          D:/a/aseprite/aseprite/build/bin/
+          # D:/a/aseprite/aseprite/build/bin/
+          /Users/runner/work/aseprite/aseprite/build
